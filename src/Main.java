@@ -34,7 +34,7 @@ public class Main {
     }
 
     private static double euclideanDistance(double[] a, double[] b){
-        int sum = 0;
+        double sum = 0;
         for(int i = 0; i < a.length; i++){
             sum += Math.pow(a[i] - b[i], 2);
         }
@@ -150,5 +150,7 @@ public class Main {
         }
         scanner.close();
     }
+
+
 
 }
