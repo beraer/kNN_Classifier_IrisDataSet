@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) throws IOException {
         if (args.length < 3) {
-            System.out.println("Usage: java KNNClassifier <k> <train-set> <test-set>");
+            System.out.println("Usage: java PrimitiveApproach/KnnClassifier <k> <../data/train-set> <../data/test-set>");
             return;
         }
 
@@ -19,7 +19,7 @@ public class Main {
         List<Vector> trainingSet = LoadDataFileCSV.loadDataFile(trainFile);
         List<Vector> testSet = LoadDataFileCSV.loadDataFile(testFile);
 
-        double accuracy = KnnClassifier.calculateAccuracy(testSet, trainingSet, k);
+        double accuracy = KnnClassifier.calculateAccuracy(trainingSet, testSet, k);
         System.out.println("Accuracy: " + accuracy);
 
         Scanner scanner = new Scanner(System.in);

@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class KnnPredictor {
-    public double euclideanDistance(double[] v1, double[] v2) {
+    public static double euclideanDistance(double[] v1, double[] v2) {
         double sum = 0;
         for (int i = 0; i < v1.length; i++) {
             sum += Math.pow(v1[i] - v2[i], 2);
@@ -14,7 +14,7 @@ public class KnnPredictor {
         return  Math.sqrt(sum);
     }
 
-    public String predict(List<Vector> trainingSet, double[] testVectorAttributes, int k){
+    public static String predict(List<Vector> trainingSet, double[] testVectorAttributes, int k){
 
         List<Map.Entry<Double, String>> distanceLabelPairs = trainingSet.stream()
                 .map(vec -> Map.entry(euclideanDistance(testVectorAttributes, vec.attributes), vec.label))
@@ -35,7 +35,7 @@ public class KnnPredictor {
                 .orElse("");
     }
 
-    public double calculateAccuracy(List<Vector> trainingSet, List<Vector> testSet, int k){
+    public static double calculateAccuracy(List<Vector> trainingSet, List<Vector> testSet, int k){
         int correct = 0;
         for (Vector vec : testSet){
             String label = predict(trainingSet, vec.attributes, k);

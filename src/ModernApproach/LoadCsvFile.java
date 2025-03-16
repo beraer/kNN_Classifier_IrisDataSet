@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoadCsvFile {
-    public List<Vector> loadCsvFile(String fileName) throws IOException {
+    public static List<Vector> loadFile(String fileName) throws IOException {
         List<Vector> data = new ArrayList<>();
         String line = "";
         BufferedReader br = new BufferedReader(new FileReader(fileName));
